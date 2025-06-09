@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhjältar för Barn</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" x-data="{ selectedHero: 'spiderman' }">
+        <div class="menu">
+            <h2>Marvel</h2>
+            <ul>
+                <li @click="selectedHero = 'spidey'">Spidey</li>
+                <li @click="selectedHero = 'spin'">Spin</li>
+                <li @click="selectedHero = 'ghostie'">Ghostie</li>
+                <li @click="selectedHero = 'spiderman'">Spindelmannen</li>
+                <li @click="selectedHero = 'miles'">Miles Morales</li>
+                <li @click="selectedHero = 'ghostspider'">Ghost Spider</li>
+                <li @click="selectedHero = 'hulk'">Hulk</li>
+                <li @click="selectedHero = 'ironman'">Iron Man</li>
+                <li @click="selectedHero = 'captainamerica'">Captain America</li>
+                <li @click="selectedHero = 'thor'">Thor</li>
+                <li @click="selectedHero = 'blackpanther'">Black Panther</li>
+            </ul>
+            <h2>DC</h2>
+            <ul>
+                <li @click="selectedHero = 'superman'">Superman</li>
+                <li @click="selectedHero = 'batman'">Batman</li>
+                <li @click="selectedHero = 'wonderwoman'">Wonder Woman</li>
+            </ul>
+            <ul>
+                <li @click="selectedHero = 'all'">Alla Superhjältar</li>
+            </ul>
+        </div>
+        <div class="content">
+            <template x-if="selectedHero === 'spidey' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/6/66/Spidey_Transparent.png/revision/latest?cb=20241006125753" alt="Spidey">
+                    <h3>Spidey</h3>
+                    <p x-show="selectedHero !== 'all'">Spidey är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'spin' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/e/ea/Spin_Transparent.png/revision/latest?cb=20241006125855" alt="Spin">
+                    <h3>Spin</h3>
+                    <p x-show="selectedHero !== 'all'">Spin är en ung superhjälte som kan bli osynlig och skjuta elektriska stötar!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'ghostie' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/6/6f/Ghost_Spider_Transparent.png/revision/latest?cb=20241006125947" alt="Ghostie">
+                    <h3>Ghostie</h3>
+                    <p x-show="selectedHero !== 'all'">Ghostie är en cool superhjältinna som kan klättra på väggar och sprida spindelnät!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'spiderman' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png" alt="Spindelmannen">
+                    <h3>Spindelmannen</h3>
+                    <p x-show="selectedHero !== 'all'">Peter Parker är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'miles' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Spider-Man_%28Miles_Morales%29_character_art.png" alt="Miles Morales">
+                    <h3>Miles Morales</h3>
+                    <p x-show="selectedHero !== 'all'">Miles är en ung superhjälte som kan bli osynlig och skjuta elektriska stötar!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'ghostspider' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://assets.comic-odyssey.com/products/covers/000/029/617/original/open-uri20181018-4-bj9kb1?1539892133" alt="Ghost Spider">
+                    <h3>Ghost Spider</h3>
+                    <p x-show="selectedHero !== 'all'">Gwen Stacy är en cool superhjältinna som kan klättra på väggar och sprida spindelnät!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'hulk' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/aa/Hulk_%28circa_2019%29.png" alt="Hulk">
+                    <h3>Hulk</h3>
+                    <p x-show="selectedHero !== 'all'">Bruce Banner blir en stor grön jätte när han blir arg!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'ironman' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png" alt="Iron Man">
+                    <h3>Iron Man</h3>
+                    <p x-show="selectedHero !== 'all'">Tony Stark är en smart superhjälte med en kraftfull rustning!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'captainamerica' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/CaptainAmericaHughes.jpg" alt="Captain America">
+                    <h3>Captain America</h3>
+                    <p x-show="selectedHero !== 'all'">Steve Rogers är en modig superhjälte med en sköld som kan blockera nästan allt!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'thor' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/3c/Chris_Hemsworth_as_Thor.jpg" alt="Thor">
+                    <h3>Thor</h3>
+                    <p x-show="selectedHero !== 'all'">Thor är en mäktig gud med en hammare som kan flyga!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'blackpanther' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Black_Panther_OS_Vol_1_2.png" alt="Black Panther">
+                    <h3>Black Panther</h3>
+                    <p x-show="selectedHero !== 'all'">T'Challa är en kung och superhjälte med en speciell dräkt!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'superman' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png" alt="Superman">
+                    <h3>Superman</h3>
+                    <p x-show="selectedHero !== 'all'">Clark Kent är en superhjälte som kan flyga och är superstark!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'batman' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg" alt="Batman">
+                    <h3>Batman</h3>
+                    <p x-show="selectedHero !== 'all'">Bruce Wayne är en smart superhjälte som använder specialutrustning!</p>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'wonderwoman' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://clipartmag.com/images/wonder-woman-cartoon-clipart-12.jpg" alt="Wonder Woman">
+                    <h3>Wonder Woman</h3>
+                    <p x-show="selectedHero !== 'all'">Diana är en stark superhjältinna med en magisk lasso och en sköld!</p>
+                </div>
+            </template>
+        </div>
+    </div>
+</body>
+</html> 
