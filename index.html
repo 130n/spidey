@@ -22,6 +22,10 @@
 <body>
     <div class="container" x-data="{ selectedHero: null }">
         <div class="menu">
+            <div class="menu-header">
+                <h5>Superhjältar för Barn</h5>
+                <button class="shuffle-button" onclick="shuffleHero()">🎲</button>
+            </div>
             <h2>Marvel</h2>
             <ul>
                 <li @click="selectedHero = 'spidey'">Spidey</li>
@@ -309,5 +313,25 @@
     </div>
     <button class="scroll-button" onclick="window.spidey.scrollToHeroes()">↓</button>
     <button class="read-button" onclick="window.spidey.readCurrentHeroDescription()">🔊</button>
+
+    <script>
+        function shuffleHero() {
+            const allHeroes = document.querySelectorAll('.menu li');
+            const randomIndex = Math.floor(Math.random() * allHeroes.length);
+            const randomHero = allHeroes[randomIndex];
+            
+            // Klicka på den slumpade hjälten
+            randomHero.click();
+            
+            // Scrolla till den slumpade hjälten
+            randomHero.scrollIntoView({ behavior: 'smooth', block: 'top' });
+            
+            // Lägg till en kort highlight-effekt
+            randomHero.classList.add('highlight');
+            setTimeout(() => {
+                randomHero.classList.remove('highlight');
+            }, 2000);
+        }
+    </script>
 </body>
 </html> 

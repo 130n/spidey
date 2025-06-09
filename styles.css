@@ -384,4 +384,50 @@ h2 {
     margin-top: 30px;
     border-bottom: 3px solid #0000ff;
     padding-bottom: 10px;
+}
+
+.menu-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.shuffle-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.shuffle-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.hero-card {
+    transition: all 0.3s ease;
+}
+
+.hero-card.highlight {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    background-color: #fff8e7;
+}
+
+@media (max-width: 768px) {
+    .menu-header {
+        gap: 10px;
+        text-align: center;
+    }
+
+    .shuffle-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 } 
