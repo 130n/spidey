@@ -15,6 +15,17 @@ body {
     min-height: 100vh;
     padding: 20px;
     gap: 20px;
+    flex-direction: row;
+}
+
+.content {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 4px solid #000000;
+    order: 2; /* Content on the right in desktop */
 }
 
 .menu {
@@ -24,6 +35,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 400px;
     border: 4px solid #000000;
+    order: 1; /* Menu on the left in desktop */
 }
 
 .menu h2 {
@@ -63,15 +75,6 @@ body {
 .menu li:hover {
     background-color: #ff1a1a; /* Lysande röd vid hover */
     transform: scale(1.05);
-}
-
-.content {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 4px solid #000000;
 }
 
 .hero-card {
@@ -126,10 +129,36 @@ body {
     margin-top: 30px;
 }
 
+/* Scroll to bottom button */
+.scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #0066cc;
+    color: white;
+    border: 3px solid #000000;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.scroll-button:hover {
+    background-color: #ff1a1a;
+    transform: scale(1.1);
+}
+
 /* Mobilanpassning */
 @media screen and (max-width: 768px) {
     * {
-        font-size: 24px; /* Mindre text på mobila enheter */
+        font-size: 24px;
     }
 
     .container {
@@ -137,16 +166,29 @@ body {
         padding: 10px;
     }
 
+    .content {
+        order: 1; /* Content on top in mobile */
+    }
+
     .menu {
         width: 100%;
-        margin-bottom: 20px;
+        margin-top: 20px;
+        border-radius: 15px;
+        background-color: #fff8e7;
+        order: 2; /* Menu below in mobile */
+    }
+
+    .menu h2 {
+        margin-bottom: 5px;
     }
 
     .menu ul {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: 15px;
+        margin-top: 10px;
+        max-height: 200px;
+        overflow-y: auto;
     }
 
     .menu li {
@@ -157,8 +199,13 @@ body {
         padding: 8px 10px;
     }
 
+    .scroll-button {
+        display: flex;
+    }
+
     .hero-card {
         padding: 15px;
+        margin-bottom: 15px;
     }
 
     .hero-card img {
