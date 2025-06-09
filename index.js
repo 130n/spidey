@@ -4,7 +4,6 @@ window.spidey = {};
 
 function loadVoices() {
     window.spidey.voices = window.speechSynthesis.getVoices();
-    console.log('Röster tillgängliga:', window.spidey.voices);
     return window.spidey.voices;
 }
 

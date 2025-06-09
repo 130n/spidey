@@ -4,10 +4,16 @@
   "description": "Superhjältesida för barn",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "mkdir -p dist && cp -r index.html styles.css index.js speakText.js node_modules dist/",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "alpinejs": "^3.13.5"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
