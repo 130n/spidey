@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Superhjältesidan Ymer</title>
-    <script defer src="/spidey/node_modules/alpinejs/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="/spidey/styles.css">
-    <script type="module" src="/spidey/index.js"></script>
+    <script>
+        // Ladda Alpine.js från vendor i produktion, annars från node_modules
+        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const alpineSrc = isLocalhost 
+            ? './node_modules/alpinejs/dist/cdn.min.js'
+            : './vendor/alpine.js';
+        
+        const script = document.createElement('script');
+        script.src = alpineSrc;
+        script.defer = true;
+        document.head.appendChild(script);
+    </script>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./index.js"></script>
 </head>
 <body>
     <div class="container" x-data="{ selectedHero: null }">
