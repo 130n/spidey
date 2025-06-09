@@ -46,7 +46,6 @@
                     <h2>Välkommen till superhjältesidan Ymer!</h2>
                     <p>Här kan du utforska en värld full av fantastiska superhjältar från både Marvel och DC Comics.</p>
                     <p>Välj en superhjälte från menyn till vänster för att lära dig mer om deras spännande historier och speciella förmågor. Du kan också klicka på "Alla Superhjältar" för att se alla våra hjältar på en gång!</p>
-                    <p>Varje superhjälte har sin egen historia om mod, vänskap och att hjälpa andra. Vilken superhjälte vill du lära dig mer om först?</p>
                 </div>
             </template>
             <template x-if="selectedHero === 'spidey' || selectedHero === 'all'">
@@ -54,7 +53,7 @@
                     <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/6/66/Spidey_Transparent.png" alt="Spidey">
                     <h3>Spidey</h3>
                     <p class="alter-ego">Peter Parker</p>
-                    <div x-show="selectedHero !== 'all'">
+                    <div x-show="selectedHero === 'spin' || selectedHero !== 'all'">
                         <p>Spidey är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
                         <h4>Krafter</h4>
                         <p>Spidey har övermänsklig styrka, kan klättra på väggar, har en "spindelsinne" som varnar honom för fara, och kan skjuta spindelnät från sina handleder!</p>
