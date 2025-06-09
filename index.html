@@ -6,6 +6,71 @@
     <title>Superhjältar för Barn</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        let voices = [];
+        function loadVoices() {
+            voices = window.speechSynthesis.getVoices();
+            console.log('Röster tillgängliga:', voices);
+            return voices;
+        }
+        // Lyssna på när rösterna är klara
+        if ("onvoiceschanged" in window.speechSynthesis) {1
+            window.speechSynthesis.onvoiceschanged = loadVoices;
+        } else {
+            loadVoices();
+        }
+        window.speechSynthesis.onvoiceschanged = () => {
+            const voices = loadVoices();
+            // välj svensktalande röst här om du vill
+            const sv = voices.find(v => v.lang === 'sv-SE');
+            console.log('Svensk röst:', sv);
+        };
+
+        function configureSpeech(text, options = { lang: 'sv-SE' }) {
+            // Kontrollera om webbläsaren stödjer tal
+            if (!window.speechSynthesis) {
+                console.error('Din webbläsare stödjer inte tal');
+                return;
+            }
+            const speech = new SpeechSynthesisUtterance(text);
+            speech.voice = voices.find(v => v.lang === options.lang);
+            speech.rate = 1.0;
+            speech.volume = 1.0;
+            speech.pitch = 1.0;
+            return speech;
+        }
+
+        function speakText(text) {
+            const utterance = configureSpeech(text);
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+            // Lägg till felhantering
+            utterance.onerror = (event) => {
+                console.error('Ett fel uppstod vid tal:', event);
+            };
+        }
+
+        function readWelcomeMessage() {
+            // Hämta texten från välkomstmeddelandet
+            const welcomeText = document.querySelector('.welcome-message').innerText;
+            speakText(welcomeText);
+        }
+        function readHeroDescription(hero) {
+            const heroDescription = document.querySelector(`.hero-card[data-hero="${hero}"] .description`).innerText;
+            speakText(heroDescription);
+        }
+        function readCurrentHeroDescription() {
+            const currentHero = document.querySelector('.hero-card');
+            if (currentHero) {
+                speakText(document.querySelector('.hero-card').innerText);
+
+                //speakText(document.querySelector('.hero-card h3').innerText, {lang:'en-US'});
+                //speakText(document.querySelector('.hero-card p:first-child').innerText);
+            } else {
+                readWelcomeMessage();
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="container" x-data="{ selectedHero: null }">
@@ -42,11 +107,16 @@
         </div>
         <div class="content">
             <template x-if="!selectedHero">
+                <div class="welcome-message-container">
                 <div class="welcome-message">
                     <h2>Välkommen till superhjältesidan Ymer!</h2>
                     <p>Här kan du utforska en värld full av fantastiska superhjältar från både Marvel och DC Comics.</p>
                     <p>Välj en superhjälte från menyn till vänster för att lära dig mer om deras spännande historier och speciella förmågor. Du kan också klicka på "Alla Superhjältar" för att se alla våra hjältar på en gång!</p>
                 </div>
+                <button class="read-aloud-button" onclick="readWelcomeMessage()">
+                    <span class="button-icon">🔊</span>
+                    Läs upp texten
+                </button>
             </template>
             <template x-if="selectedHero === 'spidey' || selectedHero === 'all'">
                 <div class="hero-card">
@@ -290,6 +360,7 @@
             </template>
         </div>
     </div>
-    <button class="scroll-button" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})">↓</button>
+    <button class="scroll-button" onclick="scrollToHeroes()">↓</button>
+    <button class="read-button" onclick="readCurrentHeroDescription()">🔊</button>
 </body>
 </html> 
