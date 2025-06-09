@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" x-data="{ selectedHero: 'spiderman' }">
+    <div class="container" x-data="{ selectedHero: null }">
         <div class="menu">
             <h2>Marvel</h2>
             <ul>
@@ -41,81 +41,180 @@
             </ul>
         </div>
         <div class="content">
+            <template x-if="!selectedHero">
+                <div class="welcome-message">
+                    <h2>Välkommen till superhjältesidan Ymer!</h2>
+                    <p>Här kan du utforska en värld full av fantastiska superhjältar från både Marvel och DC Comics.</p>
+                    <p>Välj en superhjälte från menyn till vänster för att lära dig mer om deras spännande historier och speciella förmågor. Du kan också klicka på "Alla Superhjältar" för att se alla våra hjältar på en gång!</p>
+                    <p>Varje superhjälte har sin egen historia om mod, vänskap och att hjälpa andra. Vilken superhjälte vill du lära dig mer om först?</p>
+                </div>
+            </template>
             <template x-if="selectedHero === 'spidey' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/6/66/Spidey_Transparent.png" alt="Spidey">
                     <h3>Spidey</h3>
-                    <p x-show="selectedHero !== 'all'">Spidey är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
+                    <p class="alter-ego">Peter Parker</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Spidey är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
+                        <h4>Krafter</h4>
+                        <p>Spidey har övermänsklig styrka, kan klättra på väggar, har en "spindelsinne" som varnar honom för fara, och kan skjuta spindelnät från sina handleder!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'spin' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/e/ea/Spin_Transparent.png" alt="Spin">
                     <h3>Spin</h3>
-                    <p x-show="selectedHero !== 'all'">Spin är en ung superhjälte som kan bli osynlig och skjuta elektriska stötar!</p>
+                    <p class="alter-ego">Miles Morales</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Spin är en ung superhjälte som kan bli osynlig och skjuta elektriska stötar!</p>
+                        <h4>Krafter</h4>
+                        <p>Spin kan bli osynlig, skjuta elektriska stötar, och har en speciell dräkt som hjälper henne att kontrollera sina krafter!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'ghostie' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/6/6f/Ghost_Spider_Transparent.png" alt="Ghostie">
                     <h3>Ghostie</h3>
-                    <p x-show="selectedHero !== 'all'">Ghostie är en cool superhjältinna som kan klättra på väggar och sprida spindelnät!</p>
+                    <p class="alter-ego">Gwen Stacy</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Ghostie är en cool superhjältinna som kan klättra på väggar och sprida spindelnät!</p>
+                        <h4>Krafter</h4>
+                        <p>Ghostie har övermänsklig styrka, kan klättra på väggar, och har en speciell dräkt som ger henne spindelkrafter!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'spiderman' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png" alt="Spindelmannen">
                     <h3>Spindelmannen</h3>
-                    <p x-show="selectedHero !== 'all'">Peter Parker är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
+                    <p class="alter-ego">Peter Parker</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Peter Parker är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
+                        <h4>Krafter</h4>
+                        <p>Spindelmannen har övermänsklig styrka, snabbhet och smidighet. Han kan klättra på väggar, har ett "spindelsinne" som varnar honom för fara, och kan skjuta spindelnät från sina handleder!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'miles' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/Spider-Man_%28Miles_Morales%29_character_art.png" alt="Miles Morales">
                     <h3>Miles Morales</h3>
-                    <p x-show="selectedHero !== 'all'">Miles är en ung superhjälte som kan bli osynlig och skjuta elektriska stötar!</p>
+                    <p class="alter-ego">Miles Morales</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Miles är en ung superhjälte som kan bli osynlig och skjuta elektriska stötar!</p>
+                        <h4>Krafter</h4>
+                        <p>Miles har alla vanliga spindelkrafter plus förmågan att bli osynlig och skjuta elektriska stötar som kan paralysera sina fiender!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'ghostspider' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://assets.comic-odyssey.com/products/covers/000/029/617/original/open-uri20181018-4-bj9kb1?1539892133" alt="Ghost Spider">
                     <h3>Ghost Spider</h3>
-                    <p x-show="selectedHero !== 'all'">Gwen Stacy är en cool superhjältinna som kan klättra på väggar och sprida spindelnät!</p>
+                    <p class="alter-ego">Gwen Stacy</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Gwen Stacy är en cool superhjältinna som kan klättra på väggar och sprida spindelnät!</p>
+                        <h4>Krafter</h4>
+                        <p>Ghost Spider har övermänsklig styrka, kan klättra på väggar, och har en unik dräkt som kombinerar spindelkrafter med en futuristisk design!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'hulk' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/a/aa/Hulk_%28circa_2019%29.png" alt="Hulk">
                     <h3>Hulk</h3>
-                    <p x-show="selectedHero !== 'all'">Bruce Banner blir en stor grön jätte när han blir arg!</p>
+                    <p class="alter-ego">Bruce Banner</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Bruce Banner blir en stor grön jätte när han blir arg!</p>
+                        <h4>Krafter</h4>
+                        <p>Hulk har övermänsklig styrka som ökar när han blir argare, är nästan odödlig, kan hoppa enorma avstånd, och har en snabb läkningsfaktor!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'ironman' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png" alt="Iron Man">
                     <h3>Iron Man</h3>
-                    <p x-show="selectedHero !== 'all'">Tony Stark är en smart superhjälte med en kraftfull rustning!</p>
+                    <p class="alter-ego">Tony Stark</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Tony Stark är en smart superhjälte med en kraftfull rustning!</p>
+                        <h4>Krafter</h4>
+                        <p>Iron Man har en avancerad rustning med flygförmåga, kraftfulla vapen, sköldar, och en konstgjord intelligens som hjälper honom. Han är också ett geni med överlägsen teknik!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'captainamerica' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/CaptainAmericaHughes.jpg" alt="Captain America">
                     <h3>Captain America</h3>
-                    <p x-show="selectedHero !== 'all'">Steve Rogers är en modig superhjälte med en sköld som kan blockera nästan allt!</p>
+                    <p class="alter-ego">Steve Rogers</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Steve Rogers är en modig superhjälte med en sköld som kan blockera nästan allt!</p>
+                        <h4>Krafter</h4>
+                        <p>Captain America har övermänsklig styrka, snabbhet och uthållighet. Hans vibraniumsköld är nästan odestruerbar och kan kastas med perfekt precision!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'thor' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/3/3c/Chris_Hemsworth_as_Thor.jpg" alt="Thor">
                     <h3>Thor</h3>
-                    <p x-show="selectedHero !== 'all'">Thor är en mäktig gud med en hammare som kan flyga!</p>
+                    <p class="alter-ego">Thor Odinson</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Thor är en mäktig gud med en hammare som kan flyga!</p>
+                        <h4>Krafter</h4>
+                        <p>Thor kan kontrollera åska och blixtar, flyga med sin hammare Mjolnir, har övermänsklig styrka, och är nästan odödlig som en asagud!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'blackpanther' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Black_Panther_OS_Vol_1_2.png" alt="Black Panther">
                     <h3>Black Panther</h3>
-                    <p x-show="selectedHero !== 'all'">T'Challa är en kung och superhjälte med en speciell dräkt!</p>
+                    <p class="alter-ego">T'Challa</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>T'Challa är en kung och superhjälte med en speciell dräkt!</p>
+                        <h4>Krafter</h4>
+                        <p>Black Panther har förbättrad styrka och snabbhet från ett speciellt örtextrakt, en vibraniumdräkt som absorberar energi, och är en mästare i kampsport!</p>
+                    </div>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'antman' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Irredeemable_Ant-Man_Vol_1_5_Textless.jpg" alt="Ant-Man">
+                    <h3>Ant-Man</h3>
+                    <p class="alter-ego">Scott Lang</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Scott Lang kan krympa sig till storleken av en myra och kommunicera med insekter!</p>
+                        <h4>Krafter</h4>
+                        <p>Ant-Man kan krympa sig till mikroskopisk storlek eller växa till jättestorlek, kommunicera med insekter, och har en avancerad dräkt med flygförmåga!</p>
+                    </div>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'venom' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/Web_of_Venom.png" alt="Venom">
+                    <h3>Venom</h3>
+                    <p class="alter-ego">Eddie Brock</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Eddie Brock och en symbiotisk varelse tillsammans bildar den mäktiga Venom!</p>
+                        <h4>Krafter</h4>
+                        <p>Venom har övermänsklig styrka, kan forma om sin kropp, skjuta svarta tentakler, och är immun mot Spindelmannens spindelsinne!</p>
+                    </div>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'wolverine' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/5/5d/Wolverine_%28James_%27Logan%27_Howlett%29.png" alt="Wolverine">
+                    <h3>Wolverine</h3>
+                    <p class="alter-ego">Logan / James Howlett</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Logan är en mutant med klor och en helande faktor som gör honom nästan odödlig!</p>
+                        <h4>Krafter</h4>
+                        <p>Wolverine har en helande faktor som gör honom nästan odödlig, retraktila klor av adamantium, förbättrade sinnen, och övermänsklig styrka!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'antman' || selectedHero === 'all'">
@@ -143,21 +242,72 @@
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png" alt="Superman">
                     <h3>Superman</h3>
-                    <p x-show="selectedHero !== 'all'">Clark Kent är en superhjälte som kan flyga och är superstark!</p>
+                    <p class="alter-ego">Clark Kent / Kal-El</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Clark Kent är en superhjälte som kan flyga och är superstark!</p>
+                        <h4>Krafter</h4>
+                        <p>Superman har övermänsklig styrka, kan flyga, har röntgensyn, värmesyn, isblås, och är nästan odödlig tack vare sin kryptoniska fysiologi!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'batman' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg" alt="Batman">
                     <h3>Batman</h3>
-                    <p x-show="selectedHero !== 'all'">Bruce Wayne är en smart superhjälte som använder specialutrustning!</p>
+                    <p class="alter-ego">Bruce Wayne</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Bruce Wayne är en smart superhjälte som använder specialutrustning!</p>
+                        <h4>Krafter</h4>
+                        <p>Batman är en mästare i kampsport, har överlägsen intelligens, använder avancerad teknologi och specialutrustning, och är en skicklig detektiv!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'wonderwoman' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://clipartmag.com/images/wonder-woman-cartoon-clipart-12.jpg" alt="Wonder Woman">
                     <h3>Wonder Woman</h3>
-                    <p x-show="selectedHero !== 'all'">Diana är en stark superhjältinna med en magisk lasso och en sköld!</p>
+                    <p class="alter-ego">Diana Prince</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Diana är en stark superhjältinna med en magisk lasso och en sköld!</p>
+                        <h4>Krafter</h4>
+                        <p>Wonder Woman har övermänsklig styrka, kan flyga, har en magisk lasso som tvingar människor att säga sanningen, och en sköld som kan blockera nästan allt!</p>
+                    </div>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'robin' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/e/ee/Robin_%28Damian_Wayne%29.png" alt="Robin">
+                    <h3>Robin</h3>
+                    <p class="alter-ego">Damian Wayne</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Damian Wayne är Batmans biologiska son och en skicklig kampsportsutövare!</p>
+                        <h4>Krafter</h4>
+                        <p>Robin är en mästare i kampsport, har överlägsen intelligens, använder bataranger och andra specialverktyg, och är en skicklig akrobat!</p>
+                    </div>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'greenlantern' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/90/Green_Lantern_%28Hal_Jordan%29.png" alt="Green Lantern">
+                    <h3>Green Lantern</h3>
+                    <p class="alter-ego">Hal Jordan</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Hal Jordan använder en magisk ring som kan skapa vad som helst han kan föreställa sig!</p>
+                        <h4>Krafter</h4>
+                        <p>Green Lantern kan skapa vilka konstruktioner som helst med sin kraftring, flyga i rymden, skapa sköldar, och har övermänsklig styrka!</p>
+                    </div>
+                </div>
+            </template>
+            <template x-if="selectedHero === 'aquaman' || selectedHero === 'all'">
+                <div class="hero-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/Aquaman_Rebirth_1.png" alt="Aquaman">
+                    <h3>Aquaman</h3>
+                    <p class="alter-ego">Arthur Curry</p>
+                    <div x-show="selectedHero !== 'all'">
+                        <p>Arthur Curry är kung av Atlantis och kan kommunicera med alla havsvarelser!</p>
+                        <h4>Krafter</h4>
+                        <p>Aquaman har övermänsklig styrka, kan andas under vatten, kommunicera med havsvarelser, och använder en magisk treudd som kan kontrollera vatten!</p>
+                    </div>
                 </div>
             </template>
             <template x-if="selectedHero === 'robin' || selectedHero === 'all'">
