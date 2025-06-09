@@ -53,7 +53,7 @@
                     <img src="https://static.wikia.nocookie.net/spidey-and-his-amazing-friends/images/6/66/Spidey_Transparent.png" alt="Spidey">
                     <h3>Spidey</h3>
                     <p class="alter-ego">Peter Parker</p>
-                    <div x-show="selectedHero === 'spin' || selectedHero !== 'all'">
+                    <div x-show="selectedHero !== 'all'">
                         <p>Spidey är en ung superhjälte som kan klättra på väggar och sprida spindelnät!</p>
                         <h4>Krafter</h4>
                         <p>Spidey har övermänsklig styrka, kan klättra på väggar, har en "spindelsinne" som varnar honom för fara, och kan skjuta spindelnät från sina handleder!</p>
@@ -216,27 +216,6 @@
                     </div>
                 </div>
             </template>
-            <template x-if="selectedHero === 'antman' || selectedHero === 'all'">
-                <div class="hero-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Irredeemable_Ant-Man_Vol_1_5_Textless.jpg" alt="Ant-Man">
-                    <h3>Ant-Man</h3>
-                    <p x-show="selectedHero !== 'all'">Scott Lang kan krympa sig till storleken av en myra och kommunicera med insekter!</p>
-                </div>
-            </template>
-            <template x-if="selectedHero === 'venom' || selectedHero === 'all'">
-                <div class="hero-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/f/ff/Web_of_Venom.png" alt="Venom">
-                    <h3>Venom</h3>
-                    <p x-show="selectedHero !== 'all'">Eddie Brock och en symbiotisk varelse tillsammans bildar den mäktiga Venom!</p>
-                </div>
-            </template>
-            <template x-if="selectedHero === 'wolverine' || selectedHero === 'all'">
-                <div class="hero-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/5/5d/Wolverine_%28James_%27Logan%27_Howlett%29.png" alt="Wolverine">
-                    <h3>Wolverine</h3>
-                    <p x-show="selectedHero !== 'all'">Logan är en mutant med klor och en helande faktor som gör honom nästan odödlig!</p>
-                </div>
-            </template>
             <template x-if="selectedHero === 'superman' || selectedHero === 'all'">
                 <div class="hero-card">
                     <img src="https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png" alt="Superman">
@@ -307,27 +286,6 @@
                         <h4>Krafter</h4>
                         <p>Aquaman har övermänsklig styrka, kan andas under vatten, kommunicera med havsvarelser, och använder en magisk treudd som kan kontrollera vatten!</p>
                     </div>
-                </div>
-            </template>
-            <template x-if="selectedHero === 'robin' || selectedHero === 'all'">
-                <div class="hero-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/e/ee/Robin_%28Damian_Wayne%29.png" alt="Robin">
-                    <h3>Robin</h3>
-                    <p x-show="selectedHero !== 'all'">Damian Wayne är Batmans biologiska son och en skicklig kampsportsutövare!</p>
-                </div>
-            </template>
-            <template x-if="selectedHero === 'greenlantern' || selectedHero === 'all'">
-                <div class="hero-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/90/Green_Lantern_%28Hal_Jordan%29.png" alt="Green Lantern">
-                    <h3>Green Lantern</h3>
-                    <p x-show="selectedHero !== 'all'">Hal Jordan använder en magisk ring som kan skapa vad som helst han kan föreställa sig!</p>
-                </div>
-            </template>
-            <template x-if="selectedHero === 'aquaman' || selectedHero === 'all'">
-                <div class="hero-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/Aquaman_Rebirth_1.png" alt="Aquaman">
-                    <h3>Aquaman</h3>
-                    <p x-show="selectedHero !== 'all'">Arthur Curry är kung av Atlantis och kan kommunicera med alla havsvarelser!</p>
                 </div>
             </template>
         </div>
